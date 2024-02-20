@@ -1,6 +1,9 @@
 FROM python:3.9-slim
 #RUN yum install pkgconfig
-RUN apt-get install -y libmysqlclient-dev
+RUN apt-get update -y
+RUN apt-get install -y python3-dev build-essential
+RUN apt-get install -y default-libmysqlclient-dev
+
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /backend
