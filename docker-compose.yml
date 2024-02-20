@@ -6,7 +6,7 @@ services:
     restart: always
     container_name: django
     env_file:
-      - ./mainapp/.env
+      - ./django/mainapp/.env
     build:
       context: ./django/
       dockerfile: Dockerfile
