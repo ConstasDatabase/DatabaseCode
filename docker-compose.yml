@@ -1,0 +1,37 @@
+version: '3.4'
+
+services:
+
+  django:
+    restart: always
+    container_name: django
+    env_file:
+      - ./mainapp/.env
+    build:
+      context: ./django/
+      dockerfile: Dockerfile
+    ports:
+      -"8000:8000"
+    depends_on:
+      - web
+      - db
+    networks:
+      - proxy_net
+
+  frontend:
+    restart: always
+    build: 
+      context: ./myapp/
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    depends_on:
+      - django
+    networks:
+      - proxy_net
+
+networks:
+  proxy_net:
+    external: true
