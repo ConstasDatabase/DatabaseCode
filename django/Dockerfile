@@ -1,8 +1,9 @@
 FROM python:3.9-slim
 #RUN yum install pkgconfig
-RUN apt-get update -y
-RUN apt-get install -y python3-dev build-essential
-RUN apt-get install -y default-libmysqlclient-dev
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install -y gcc default-libmysqlclient-dev pkg-config \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV PYTHONUNBUFFERED=1
 
