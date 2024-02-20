@@ -1,5 +1,5 @@
 FROM python:3.9-slim
-
+RUN yum install pkgconfig
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /backend
