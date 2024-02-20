@@ -32,4 +32,4 @@ services:
 
 networks:
   proxy_net:
-    driver: bridge
+    external: true
