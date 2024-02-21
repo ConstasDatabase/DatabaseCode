@@ -11,10 +11,10 @@ services:
       context: ./django/
       dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      - "7990:8000"
     
     networks:
-      - proxy_net
+      - external_net
 
   frontend:
     restart: always
@@ -28,8 +28,8 @@ services:
     depends_on:
       - django
     networks:
-      - proxy_net
+      - external_net
 
 networks:
-  proxy_net:
+  external_net:
     external: true
