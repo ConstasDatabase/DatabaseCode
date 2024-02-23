@@ -27,7 +27,7 @@ services:
       dockerfile: Dockerfile
     container_name: frontend
     ports:
-      - "443:443"
+      - "3000:80"
     stdin_open: true
     networks:
       - proxy_net
