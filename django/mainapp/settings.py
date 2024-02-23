@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sconstadb',
         'USER': 'root',
-        #'PASSWORD': str(os.environ.get("DB_PASSWORD")),
+        'PASSWORD': '',
         'HOST': '10.100.2.10',   # Or the hostname where your MySQL server is running
         'PORT': '3306', 
     }
