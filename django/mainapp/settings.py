@@ -92,7 +92,7 @@ DATABASES = {
         'NAME': 'sconstadb',
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': '10.100.2.13',   # Or the hostname where your MySQL server is running
+        'HOST': 'db',   # Or the hostname where your MySQL server is running
         'PORT': '3306', 
     }
 }
