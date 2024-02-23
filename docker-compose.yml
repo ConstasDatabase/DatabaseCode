@@ -2,23 +2,23 @@ version: '3.4'
 
 services:
 
-  django:
-    restart: always
-    container_name: django
-    env_file:
-      - ./django/mainapp/.env
-    build:
-      context: ./django/
-      dockerfile: Dockerfile
-    command: >
-      bash -c "python3 manage.py makemigrations &&
-               python3 manage.py migrate &&
-               python3 manage.py runserver 10.100.2.13:7990"
-    ports:
-      - "7990:8000"
+  #django:
+    #restart: always
+    #container_name: django
+    #env_file:
+    #  - ./django/mainapp/.env
+    #build:
+    #  context: ./django/
+    #  dockerfile: Dockerfile
+    #command: >
+    #  bash -c "python3 manage.py makemigrations &&
+    #           python3 manage.py migrate &&
+     #          python3 manage.py runserver 10.100.2.13:7990"
+    #ports:
+     # - "7990:8000"
     
-    networks:
-      - proxy_net
+    #networks:
+     # - proxy_net
 
   frontend:
     restart: always
