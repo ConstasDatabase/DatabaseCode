@@ -1,6 +1,6 @@
-#version: '3.4'
+version: '3.4'
 
-#services:
+services:
 
   #django:
     #restart: always
@@ -20,18 +20,18 @@
     #networks:
      # - proxy_net
 
-  #frontend:
-    #restart: always
-    #build: 
-      #context: ./myapp/
-      #dockerfile: Dockerfile
-    #container_name: frontend
-    #ports:
-     # - "3000:80"
-    #stdin_open: true
-    #networks:
-     # - proxy_net
+  frontend:
+    restart: always
+    build: 
+      context: ./myapp/
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "3000:80"
+    stdin_open: true
+    networks:
+      - proxy_net
 
-#networks:
- # proxy_net:
-  #  external: true
+networks:
+ proxy_net:
+   external: true
