@@ -10,6 +10,6 @@ COPY . /frontend/
 
 #RUN npm run build
 
-EXPOSE 80/tcp
+EXPOSE 3000
 
 CMD ["npm", "start"]
