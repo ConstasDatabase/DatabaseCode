@@ -89,7 +89,7 @@ WSGI_APPLICATION = "mainapp.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sconstadb',
+        'NAME': str(os.environ.get("DB_NAME")),
         'USER': 'root',
         'PASSWORD': str(os.environ.get("DB_PASSWORD")),
         'HOST': str(os.environ.get("DB_HOST")),   # Or the hostname where your MySQL server is running

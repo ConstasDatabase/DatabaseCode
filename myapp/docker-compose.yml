@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+
+  frontend:
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: frontend
+    stdin_open: true
+    volumes:
+      - frontend_build: /frontend/build
+    networks:
+      - proxy_net
+volumes:
+  frontend_build:
+
+networks:
+ proxy_net:
+   external: true
