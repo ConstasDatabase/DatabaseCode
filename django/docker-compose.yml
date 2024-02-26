@@ -11,7 +11,7 @@ services:
     env_file:
       - ./mainapp/.env
     environment:
-      MYSQL_HOST: mariadb-10113-db-1
+      MYSQL_HOST: constaslab.chem.uwo.ca
     build:
       context: .
       dockerfile: Dockerfile
