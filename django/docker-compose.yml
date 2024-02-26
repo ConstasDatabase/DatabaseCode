@@ -10,6 +10,8 @@ services:
         ipv4_address: 10.100.2.13
     env_file:
       - ./mainapp/.env
+    environment:
+      - MYSQL_HOST: mariadb-10113-db-1
     build:
       context: .
       dockerfile: Dockerfile
