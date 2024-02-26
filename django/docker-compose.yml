@@ -5,6 +5,9 @@ services:
   django:
     restart: always
     container_name: django
+    networks:
+      proxy_net:
+        ipv4_address: 10.100.2.13
     env_file:
       - ./mainapp/.env
     build:
@@ -14,8 +17,7 @@ services:
     ports:
       - "7990:7990"
     
-    networks:
-      - proxy_net
+    
 
 networks:
  proxy_net:
