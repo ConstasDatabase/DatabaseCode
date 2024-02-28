@@ -18,7 +18,7 @@ services:
     ports:
       - "7990:7990"
     depends_on:
-      - mariadb-10113-db-1
+      - db
    
     
 
