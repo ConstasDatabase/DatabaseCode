@@ -12,9 +12,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: bash -c "python manage.py makemigrations && 
-                      python manage.py migrate &&
-                      python manage.py runserver 10.100.2.13:7990"
+    command: gunicorn mainapp.wsgi --bind 10.100.2.13:7990
     ports:
       - "7990:7990"
    
