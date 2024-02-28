@@ -89,18 +89,17 @@ WSGI_APPLICATION = "mainapp.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        #'NAME': str(os.environ.get("DB_NAME")),
-        #'USER': str(os.environ.get("DB_USER")),
+        'NAME': str(os.environ.get("DB_NAME")),
+        'USER': str(os.environ.get("DB_USER")),
         #'PASSWORD': str(os.environ.get("DB_PASSWORD")),
-        #'HOST': "10.100.2.10",   # Or the hostname where your MySQL server is running
-        #'PORT': '3306', 
+        'HOST': str(os.environ.get("DB_HOST")),   # Or the hostname where your MySQL server is running
+        'PORT': '3306', 
         'OPTIONS':{
-            #'ssl':{
-                #'ssl-ca': str(os.environ.get("ssl_ca")),
-                #'cert': str(os.environ.get("ssl_cert")),
-                #'key': str(os.environ.get("ssl_key"))
-            #}
-            "read_default_file": "/etc/my.cnf"
+            'ssl':{
+                'ca': str(os.environ.get("ssl_ca")),
+                'cert': str(os.environ.get("ssl_cert")),
+                'key': str(os.environ.get("ssl_key"))
+            }
         }
     }
 }
