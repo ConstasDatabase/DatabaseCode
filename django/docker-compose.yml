@@ -18,7 +18,7 @@ services:
     ports:
       - "7990:7990"
     depends_on:
-      - db
+      - d43da1981278
    
     
 
