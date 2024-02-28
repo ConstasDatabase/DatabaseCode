@@ -2,6 +2,27 @@ version: '3.4'
 
 services:
 
+  db:
+    image: mariadb:10.11.3
+    restart: always
+    environment:
+      TZ: "America/Toronto"
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD 
+      MARIADB_AUTO_UPGRADE: "true"
+    networks:
+      proxy_net:
+        ipv4_address: 10.100.2.10
+
+    ports:
+      - "127.0.0.1:3306:3306"
+
+    volumes:
+      - ../../mariadb-10.11.3/etc/sts7373.cnf:/etc/mysql/conf.d/sts7373.cnf
+      - ../../mariadb-10.11.3/var/mysql:/var/lib/mysql
+      - ../../mariadb-10.11.3/log:/var/log/mysql
+      - /etc/pki/tls/certs/:/etc/pki/tls/certs/
+      - /etc/pki/tls/private/constaslab.chem.uwo.ca.key:/etc/pki/tls/private/constaslab.chem.uwo.ca.key
+
   django:
     restart: always
     container_name: django
@@ -18,6 +39,8 @@ services:
     command: gunicorn mainapp.wsgi --bind 10.100.2.13:7990
     ports:
       - "7990:7990"
+    depends_on:
+      - db
     
     
 
