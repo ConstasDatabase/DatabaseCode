@@ -17,8 +17,6 @@ services:
                       python manage.py runserver 10.100.2.13:7990"
     ports:
       - "7990:7990"
-    depends_on:
-      - d43da1981278
    
     
 
