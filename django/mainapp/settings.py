@@ -95,11 +95,7 @@ DATABASES = {
         'HOST': str(os.environ.get("DB_HOST")),   # Or the hostname where your MySQL server is running
         'PORT': '3306', 
         'OPTIONS':{
-            'ssl':{
-                'ca': str(os.environ.get("ssl_ca")),
-                'cert': str(os.environ.get("ssl_cert")),
-                'key': str(os.environ.get("ssl_key"))
-            }
+  
         }
     }
 }
