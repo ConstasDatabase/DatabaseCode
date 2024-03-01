@@ -92,7 +92,7 @@ DATABASES = {
         'NAME': str(os.environ.get("DB_NAME")),
         'USER': str(os.environ.get("DB_USER")),
         #'PASSWORD': str(os.environ.get("DB_PASSWORD")),
-        'HOST': str(os.environ.get("DB_HOST")),   # Or the hostname where your MySQL server is running
+        'HOST': "10.100.2.12a",   # Or the hostname where your MySQL server is running
         'PORT': '3306', 
         #'OPTIONS':{
         #    'ssl':{
