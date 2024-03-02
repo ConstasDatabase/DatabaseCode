@@ -2,13 +2,13 @@ import axios from 'axios';
 
 
 export const api = axios.create({
-    baseURL: 'https://10.100.2.13:7990/'
+    baseURL: '/api'
 })
 
 
 export const getPost = async () => {
     try{
-        const response = await api.get('api/categories/');
+        const response = await api.get('/');
         return response.data;
     }catch (e) {
         console.error('Message: ', e);
