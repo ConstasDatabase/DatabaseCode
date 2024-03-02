@@ -8,7 +8,7 @@ export const PostRefStruct = (refLink, nameID) =>{
     'references_id': nameID
     }
 
-    axios.post('http://127.0.0.1:7990/api/references/', JSON.stringify(refStructData), {
+    axios.post('https://10.100.2.13:7990/api/references/', JSON.stringify(refStructData), {
         headers: {
             'Content-Type': 'application/json'
         }
