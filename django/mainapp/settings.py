@@ -28,7 +28,7 @@ SECRET_KEY = str(os.environ.get("DB_SECRET_KEY"))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['10.100.2.13', 'constaslab.chem.uwo.ca']
+ALLOWED_HOSTS = ['10.100.2.13', 'constaslab.chem.uwo.ca', '0.0.0.0']
 
 
 # Application definition
@@ -76,7 +76,6 @@ TEMPLATES = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
     'https://10.100.2.13:3000',
     'https://10.100.2.2:443',
     'https://0.0.0.0:443',
