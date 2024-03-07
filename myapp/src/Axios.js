@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 export const api = axios.create({
-    baseURL: 'https://10.100.2.13:7990/'
+    baseURL: 'https://constaslab.chem.uwo.ca/'
 })
 
 
