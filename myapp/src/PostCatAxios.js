@@ -15,9 +15,9 @@ export const PostDataStruct = (catLink) => {
         window.location.reload()
     })
     
-    .catch(error => {
+    /*.catch(error => {
         console.error('Error posting data:', error);
-    });
+    });*/
 
 
 }
