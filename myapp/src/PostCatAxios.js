@@ -5,7 +5,7 @@ export const PostDataStruct = (catLink) => {
     const catStructData = {'category': catLink
        }
     
-    axios.post('https://constaslab.chem.uwo.ca/api/categories/', JSON.stringify(catStructData), {
+    axios.post('https://10.100.2.2:443/api/categories/', JSON.stringify(catStructData), {
         headers: {
             'Content-Type': 'application/json'
         }
