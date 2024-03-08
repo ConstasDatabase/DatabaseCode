@@ -28,7 +28,7 @@ SECRET_KEY = str(os.environ.get("DB_SECRET_KEY"))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['10.100.2.13', 'constaslab.chem.uwo.ca', '0.0.0.0', '10.100.2.2:443']
+ALLOWED_HOSTS = ['10.100.2.13', 'constaslab.chem.uwo.ca', '10.100.2.2:443']
 
 
 # Application definition
@@ -76,15 +76,13 @@ TEMPLATES = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://10.100.2.13:3000',
     'https://10.100.2.2:443',
-    'https://0.0.0.0:443',
     'https://10.100.2.13:7990'
 ]
 
 WSGI_APPLICATION = "mainapp.wsgi.application"
 
-
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
