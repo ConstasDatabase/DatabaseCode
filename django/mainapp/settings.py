@@ -77,7 +77,11 @@ TEMPLATES = [
 
 CORS_ALLOWED_ORIGINS = [
     'https://10.100.2.2:443',
-    'https://10.100.2.13:7990'
+    'https://10.100.2.13:7990',
+    'https://constaslab.chem.uwo.ca',
+    'https://constaslab.chem.uwo.ca/',
+    'https://constaslab.chem.uwo.ca:443/',
+    'https://constaslab.chem.uwo.ca:443'
 ]
 
 WSGI_APPLICATION = "mainapp.wsgi.application"
