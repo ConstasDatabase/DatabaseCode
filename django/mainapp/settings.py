@@ -84,9 +84,7 @@ CORS_ALLOWED_ORIGINS = [
     'https://constaslab.chem.uwo.ca',
     'https://constaslab.chem.uwo.ca:443',
     'https://localhost:443',
-    'https://localhost:443/apis/',
-    'https://localhost',
-    'https://localhost/apis/'
+    'https://localhost'
 ]
 
 WSGI_APPLICATION = "mainapp.wsgi.application"
