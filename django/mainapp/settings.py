@@ -28,7 +28,7 @@ SECRET_KEY = str(os.environ.get("DB_SECRET_KEY"))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['http://10.100.2.13', 'https://constaslab.chem.uwo.ca:443', 'https://constaslab.chem.uwo.ca', '10.100.2.13', 'constaslab.chem.uwo.ca', 'localhost']
+ALLOWED_HOSTS = ['http://10.100.2.13', 'https://constaslab.chem.uwo.ca:443', 'https://constaslab.chem.uwo.ca', '10.100.2.13', 'constaslab.chem.uwo.ca', 'localhost', 'https://localhost:443']
 
 
 # Application definition
