@@ -28,10 +28,17 @@ SECRET_KEY = str(os.environ.get("DB_SECRET_KEY"))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['http://10.100.2.13', 'https://constaslab.chem.uwo.ca:443', 'https://constaslab.chem.uwo.ca', '10.100.2.13', 'constaslab.chem.uwo.ca', 'localhost', 'https://localhost:443',
-    'https://localhost:443/apis/',
-    'https://localhost',
-    'https://localhost/apis/']
+ALLOWED_HOSTS = ['http://10.100.2.13', 
+                 'https://constaslab.chem.uwo.ca:443', 
+                 'https://constaslab.chem.uwo.ca', 
+                 '10.100.2.13', 
+                 'constaslab.chem.uwo.ca', 
+                 'localhost', 
+                 'https://localhost:443',
+                 'https://localhost:443',
+                 'https://localhost',
+                 'constaslab.chem.uwo.ca:443',
+                 '10.100.2.2']
 
 
 # Application definition
@@ -84,7 +91,9 @@ CORS_ALLOWED_ORIGINS = [
     'https://constaslab.chem.uwo.ca',
     'https://constaslab.chem.uwo.ca:443',
     'https://localhost:443',
-    'https://localhost'
+    'https://localhost',
+    'http://10.100.2.2',
+    'https://10.100.2.2'
 ]
 
 WSGI_APPLICATION = "mainapp.wsgi.application"
