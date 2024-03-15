@@ -28,17 +28,7 @@ SECRET_KEY = str(os.environ.get("DB_SECRET_KEY"))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['http://10.100.2.13', 
-                 'https://constaslab.chem.uwo.ca:443', 
-                 'https://constaslab.chem.uwo.ca', 
-                 '10.100.2.13', 
-                 'constaslab.chem.uwo.ca', 
-                 'localhost', 
-                 'https://localhost:443',
-                 'https://localhost:443',
-                 'https://localhost',
-                 'constaslab.chem.uwo.ca:443',
-                 '10.100.2.2']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -85,16 +75,8 @@ TEMPLATES = [
     },
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'https://10.100.2.2:443',
-    'https://10.100.2.13:7990',
-    'https://constaslab.chem.uwo.ca',
-    'https://constaslab.chem.uwo.ca:443',
-    'https://localhost:443',
-    'https://localhost',
-    'http://10.100.2.2',
-    'https://10.100.2.2'
-]
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 WSGI_APPLICATION = "mainapp.wsgi.application"
 
@@ -104,15 +86,12 @@ WSGI_APPLICATION = "mainapp.wsgi.application"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mysql.connector.django',
+        'ENGINE': str(os.environ.get("DB_ENGINE")), #django.db.backends.mysql
         'NAME': str(os.environ.get("DB_NAME")),
         'USER': str(os.environ.get("DB_USER")),
         'PASSWORD': str(os.environ.get("DB_PASSWORD")),
         'HOST': str(os.environ.get("DB_HOST")),   # Or the hostname where your MySQL server is running
-        'PORT': '3306', 
-        'OPTIONS':{
-  
-        }
+        'PORT': '3306'
     }
 }
 
@@ -150,6 +129,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+STATIC_ROOT = BASE_DIR /'staticfiles'
 
 STATIC_URL = "static/"
 

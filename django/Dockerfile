@@ -17,7 +17,9 @@ RUN pip install -r requirements.txt
 
 COPY . /backend/
 
-EXPOSE 7990
+EXPOSE 8000
+
+RUN python manage.py collectstatic
 
 RUN python manage.py makemigrations
 

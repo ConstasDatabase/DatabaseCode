@@ -5,16 +5,17 @@ services:
     restart: always
     container_name: django
     networks:
-      - proxy_net
+      proxy_net:
+       ipv4_address: 10.100.2.13
         
     env_file:
       - ./mainapp/.env
     build:
       context: .
       dockerfile: Dockerfile
-    command: gunicorn mainapp.wsgi --bind 0.0.0.0:7990
+    command: gunicorn mainapp.wsgi --bind 0.0.0.0:8000
     ports:
-      - "7990:7990"
+      - "8000:8000"
    
     
 

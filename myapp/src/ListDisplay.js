@@ -102,27 +102,26 @@ function ListView({jsonData, resetData}){
                         <List>
                             <ListItemButton disableRipple 
                                 sx={{marginX:'10px', borderBottom: 1, borderColor:'grey.300'}} 
-                                
                                 onClick={handleShowAll}>
                                     <ListItemText primary="Show All Categories"/>
                             </ListItemButton>
                         
                             {jsonData.map((categoryItem) => (
                                 <ListItemButton key={categoryItem.uniqueId} 
-                                selected={filterCat === categoryItem.category} 
-                                onClick={() => handleFilterCat(categoryItem.category)}
-                                sx={{marginX:'10px', borderBottom: 1, borderColor:'grey.300'}}>
-                                    <ListItemText primary={categoryItem.category} />
+                                    selected={filterCat === categoryItem.category} 
+                                    onClick={() => handleFilterCat(categoryItem.category)}
+                                    sx={{marginX:'10px', borderBottom: 1, borderColor:'grey.300'}}>
+                                        <ListItemText primary={categoryItem.category} />
                                 </ListItemButton>
                             ))}
                             <ListItem>
                             
-                            <ListItemButton sx={{marginX:'10px'}} onClick={addCat}>
-                                <Add fontSize='small'/>
-                                <ListItemText sx={{fontStyle:'italic'}} primary="Add New Category..."/>
-                            </ListItemButton>
+                                <ListItemButton sx={{marginX:'10px'}} onClick={addCat}>
+                                    <Add fontSize='small'/>
+                                    <ListItemText sx={{fontStyle:'italic'}} primary="Add New Category..."/>
+                                </ListItemButton>
                                 <AddCat setOpen={openCat} setClose={closeCat}/>
-                            
+                                
                             </ListItem>
                         
                         </List>

@@ -2,13 +2,13 @@ import axios from 'axios';
 
 
 export const api = axios.create({
-    baseURL: 'https://constaslab.chem.uwo.ca:443/api/'
+    baseURL: 'http://127.0.0.1:8000/api/'
 })
 
 
 export const getPost = async () => {
     try{
-        const response = await api.get('api/categories/');
+        const response = await api.get('categories/');
         return response.data;
     }catch (e) {
         console.error('Message: ', e);
