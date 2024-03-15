@@ -11,6 +11,14 @@ WORKDIR /backend
 
 RUN pip install --upgrade pip
 
+RUN apt-get update
+RUN apt-get install -y gnupg
+RUN apt-get install -y lsb-release
+
+RUN apt-get update
+
+RUN apt-get install -y mariadb-client
+
 COPY requirements.txt /backend/
 
 RUN pip install -r requirements.txt
