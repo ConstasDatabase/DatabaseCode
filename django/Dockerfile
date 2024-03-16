@@ -15,8 +15,6 @@ RUN apt-get update
 RUN apt-get install -y gnupg
 RUN apt-get install -y lsb-release
 
-RUN apt-get update
-
 RUN apt-get install -y mariadb-client
 
 COPY requirements.txt /backend/
@@ -32,4 +30,6 @@ RUN python manage.py collectstatic
 RUN python manage.py makemigrations
 
 RUN python manage.py migrate
+
+CMD ["python", "manage.py", "runserver"]
 
