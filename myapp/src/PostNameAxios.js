@@ -8,7 +8,7 @@ export const PostNameStruct = (testLink, catID) =>{
     'testNames_id': catID
     }
 
-    axios.post('http://127.0.0.1:8000/api/testNames/', JSON.stringify(nameStructData), {
+    axios.post('https://constaslab.chem.uwo.ca/links/testNames/', JSON.stringify(nameStructData), {
         headers: {
             'Content-Type': 'application/json'
         }
