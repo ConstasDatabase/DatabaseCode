@@ -155,16 +155,48 @@ function ListView({jsonData, resetData}){
                                             
                                             <List  disablePadding>
                                             {nameItem.references.map((refItem, refItemIndex) => (
-                                            <ListItem key={refItemIndex}>
-                                                <ListItemText secondary={refItem.ref}/>
-                                            </ListItem>
+                                                <ListItem key={refItemIndex}>
+                                                    <ListItemText secondary={
+                                                        <div style={{display:'block', width:'95%', alignItems:'center', whiteSpace:'pre-line'}}>
+                                                            <Typography variant='body2'>
+                                                                {refItem.refAuthors !== 'None' && (<span style={{marginRight:'4px'}}>
+                                                                    {refItem.refAuthors  + '.'} 
+                                                                </span>)}
+                                                                {refItem.refYear !== 'None' && (<span style={{marginRight:'4px'}}>
+                                                                    {'(' + refItem.refYear + ').'}
+                                                                </span>)}
+                                                                {refItem.refTitle !== 'None' && (<span style={{marginRight:'4px'}}>
+                                                                    {refItem.refTitle + '.'} 
+                                                                </span>)}
+                                                                {refItem.refPub !== 'None' && (<span style={{marginRight:'4px', fontStyle:'italic'}}>
+                                                                    {refItem.refPub + ','} 
+                                                                </span>)}
+                                                                {(refItem.refVol !== 'None' && refItem.refIssue === 'None') && (<span style={{fontStyle:'italic'}}>
+                                                                    {refItem.refVol + ','} 
+                                                                </span>)}
+                                                                {(refItem.refVol !== 'None' && refItem.refIssue !== 'None') && (<span style={{fontStyle:'italic'}}>
+                                                                    {refItem.refVol} 
+                                                                </span>)}
+                                                                {refItem.refIssue !== 'None' && (<span>
+                                                                    {'(' + refItem.refIssue + '),'} 
+                                                                </span>)}
+                                                                {refItem.refPages !== 'None' && (<span  style={{marginLeft:'4px', marginRight:'4px'}}>
+                                                                    {refItem.refPages + '.'} 
+                                                                </span>)}
+                                                                {refItem.refLink !== 'None' && (<span>
+                                                                    {refItem.refLink + '.'} 
+                                                                </span>)}
+                                                            </Typography>
+                                                        </div>
+                                                        }/>
+                                                </ListItem>
                                             ))}
                                             </List>
                                             {(nameItem.references.length) < 5  ? (
                                                 <ListItem> 
                                                     <ListItemButton onClick={addRef}>
-                                                    <Add fontSize='small'/>
-                                                    <ListItemText secondary='Add Reference (Limit: 5)'/>
+                                                        <Add fontSize='small'/>
+                                                        <ListItemText secondary='Add Reference (Limit: 5)'/>
                                                     </ListItemButton>
                                                     <AddRef onOpen={ref} 
                                                     onCloseModal={closeRef} 
@@ -179,8 +211,9 @@ function ListView({jsonData, resetData}){
                                             </Collapse>
                                         }/>
                                             {open[nameItem.name] ? 
-                                            <Button onClick={() => handleOpenRef(nameItem.name)}><ExpandLess/></Button>
-                                            : <Button onClick={() => handleOpenRef(nameItem.name)}><ExpandMore/></Button>}
+                                                <Button onClick={() => handleOpenRef(nameItem.name)}><ExpandLess/></Button>
+                                                : <Button onClick={() => handleOpenRef(nameItem.name)}><ExpandMore/></Button>
+                                                }
                                            
                                     </ListItem>
                                 ))}
@@ -201,7 +234,39 @@ function ListView({jsonData, resetData}){
                                                 <List  disablePadding>
                                                 {nameItem.references.map((refItem, refItemIndex) => (
                                                    <ListItem key={refItemIndex}>
-                                                    <ListItemText secondary={refItem.ref}/>
+                                                    <ListItemText secondary={
+                                                        <div style={{display:'block', width:'95%', alignItems:'center', whiteSpace:'pre-line'}}>
+                                                            <Typography variant='body2'>
+                                                                {refItem.refAuthors !== 'None' && (<span style={{marginRight:'4px'}}>
+                                                                    {refItem.refAuthors  + '.'} 
+                                                                </span>)}
+                                                                {refItem.refYear !== 'None' && (<span style={{marginRight:'4px'}}>
+                                                                    {'(' + refItem.refYear + ').'}
+                                                                </span>)}
+                                                                {refItem.refTitle !== 'None' && (<span style={{marginRight:'4px'}}>
+                                                                    {refItem.refTitle + '.'} 
+                                                                </span>)}
+                                                                {refItem.refPub !== 'None' && (<span style={{marginRight:'4px', fontStyle:'italic'}}>
+                                                                    {refItem.refPub + ','} 
+                                                                </span>)}
+                                                                {(refItem.refVol !== 'None' && refItem.refIssue === 'None') && (<span style={{fontStyle:'italic'}}>
+                                                                    {refItem.refVol + ','} 
+                                                                </span>)}
+                                                                {(refItem.refVol !== 'None' && refItem.refIssue !== 'None') && (<span style={{fontStyle:'italic'}}>
+                                                                    {refItem.refVol} 
+                                                                </span>)}
+                                                                {refItem.refIssue !== 'None' && (<span>
+                                                                    {'(' + refItem.refIssue + '),'} 
+                                                                </span>)}
+                                                                {refItem.refPages !== 'None' && (<span  style={{marginLeft:'4px', marginRight:'4px'}}>
+                                                                    {refItem.refPages + '.'} 
+                                                                </span>)}
+                                                                {refItem.refLink !== 'None' && (<span>
+                                                                    {refItem.refLink + '.'} 
+                                                                </span>)}
+                                                            </Typography>
+                                                        </div>
+                                                        }/>
                                                     </ListItem>
                                                     
                                                 ))}

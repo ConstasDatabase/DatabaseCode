@@ -47,10 +47,9 @@ function SearchDisp ({infos, results}){
                 height: '15vh', 
                 borderBottom: 4,
                 borderColor:'grey.300',
-                flexGrow:1}}>
+            }}>
             
             <Box  sx={{ 
-                    
                     display:'flex', 
                     width:'40%', 
                     height: '8vh', 
@@ -59,7 +58,10 @@ function SearchDisp ({infos, results}){
                     alignItems: 'center', 
                     justifyContent:'center', 
                     border:1,
-                    borderColor:'grey.300'}}>
+                    borderColor:'grey.300',
+                    
+                }}
+                >
                 <form onSubmit={handleSubmit}>
                 <Button sx={{color:'black', '&:hover':{backgroundColor: 'white'}}}>
                 <Search fontSize='medium' />
