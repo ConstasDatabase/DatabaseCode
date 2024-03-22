@@ -71,7 +71,7 @@ function SiteBar () {
                         { db_name }
                     </Typography>
 
-                        <div>
+                        {/*<div>
                             {options.map((option, index) => (
                                 <Button key={ index } 
                                 onClick={option.onClick}
@@ -94,7 +94,7 @@ function SiteBar () {
                             
                             </Button>
                             
-                        </div>
+                            </div>*/}
                         
                     </Box>
                 </Container>
