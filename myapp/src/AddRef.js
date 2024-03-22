@@ -68,6 +68,13 @@ function AddRef ({onOpen, onCloseModal, catName, testName, name_id}){
 
     const [pageRange, setPageRange] = useState('');
     const [pageEnd, setPageEnd] = useState('');
+
+    const [numAuthors, setNumAuthors] = useState('');
+    const [textfields, setTextFields] = useState([]);
+
+    const [lastNames, setLastNames] = useState([]);
+    const [fullNames, setFullNames] = useState([]);
+    
     
 
     const savePost = () => {
@@ -117,11 +124,65 @@ function AddRef ({onOpen, onCloseModal, catName, testName, name_id}){
         setDay('')
         setPageEnd('')
         setPageRange('')
+        setLastNames([])
+        setFullNames([])
     }
     
     const handleCheckbox = (event) => {
         setChecked(event.target.checked)
         setYear(event.target.checked ? 'n.d.' : year)
+    }
+
+    const setAuthFields = (event) => {
+        setNumAuthors(event.target.value)
+        generateTextFields(event.target.value)
+    }
+
+    const handleViewAuth = (i, e) => {
+        //setFullNames(prevValues => [...prevValues, [...lastNames]])
+        const lNames = [...lastNames]
+        lNames[i] = e
+        setLastNames(lNames)
+
+        setFullNames(prevValues => {
+            const newDisplayedValues = [...prevValues];
+            newDisplayedValues[i] = e;
+            if (numAuthors === '6+') {
+                setAuthors(newDisplayedValues.join(', ') + ' et al');
+            }
+            else{setAuthors(newDisplayedValues.join(', '));}
+            return newDisplayedValues;
+          });
+          
+    }
+
+    const generateTextFields = (count) => {
+        const maxfields = count === '6+' ? 1 : parseInt(count, 10)
+        const fields = []
+        //const lNames = []
+        for(let i = 0; i < maxfields; i++){
+            fields.push(
+                <div key={i}>
+                        <TextField
+                            id="filled-author-lname"
+                            label="Author Last Name, First Name Initial. Middle Name Initial. (i.e. Doe, J. J.)"
+                            variant="filled"
+                            required
+                            helperText="Required: Include last name if these is no middle or first name or website name if there is no author"
+                            value={lastNames[i]}
+                            onChange={(e) => { 
+                                handleViewAuth(i, e.target.value)
+                            }}
+                            sx={{marginRight:'2%', width:'100%'}}
+                        />
+                        
+                    </div> 
+            )
+            
+            
+        }
+        setTextFields(fields)
+    
     }
 
     useEffect(() => {
@@ -148,6 +209,10 @@ function AddRef ({onOpen, onCloseModal, catName, testName, name_id}){
         }
       }, [pageRange, pageEnd]);
 
+    /*useEffect(() => {
+        const fullAuthName = lastNames.join(', ')
+        setAuthors(fullAuthName);
+    }, [lastNames])*/
 
     return(
         
@@ -161,6 +226,9 @@ function AddRef ({onOpen, onCloseModal, catName, testName, name_id}){
                         <span style={{marginRight:'4px'}}>
                             Preview: 
                         </span>
+                        {/*fullNames.map((lNames, i) => (
+                            <span style={{marginRight:'4px'}} key={i}>{lNames}, </span>
+                        ))*/}
                         {authors !== '' && (<span style={{marginRight:'4px'}}>
                             {authors + '.'} 
                         </span>)}
@@ -191,8 +259,9 @@ function AddRef ({onOpen, onCloseModal, catName, testName, name_id}){
                     </Typography>
                 </div>
                 
+                
 
-            
+               
                 <TextField
                     id="filled-select"
                     select
@@ -209,31 +278,48 @@ function AddRef ({onOpen, onCloseModal, catName, testName, name_id}){
                         </MenuItem>
                     ))}
                 </TextField>
+
+                <TextField
+                    id="filled-email"
+                    variant="filled"
+                    label="Enter Reporter Email"
+                    helperText="For contact purposes only"
+                    
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    sx={{marginTop:'1%', width:'30%'}}
+                />
                 
-                {(selection === "Book"|| selection === "Journal" || selection === "Website")&&(
+                {/*(selection === "Book"|| selection === "Journal" || selection === "Website")&&(
                     
                         <TextField
                             select
                             label="Select Number of Authors"
                             variant="filled"
+                            value={numAuthors}
+                            onChange={setAuthFields}
                             sx={{width:'30%', marginTop:'1%'}}>
                             {[1, 2, 3, 4, 5, '6+'].map((num) => (
                             <MenuItem key={num} value={num}>{num}</MenuItem>
                             ))}
                         </TextField>
                     
-                )}
+                            )*/}
 
                 
                 {(selection === "Book"|| selection === "Journal" || selection === "Website")&&(
                     <div style={{marginTop:'1%', width:'95%'}}>
                         <TextField
                             id="filled-author-lname"
-                            label="Author Last Name"
+                            label="APA Format: Author Last Name, First Name Initial. Middle Name Initial. (i.e. Doe, J. J.)"
                             variant="filled"
-                            sx={{marginRight:'2%', width:'38%'}}
+                            value={authors}
+                            onChange={(e) => setAuthors(e.target.value)}
+                            required
+                            helperText="Required: Include last name if these is no middle or first name or website name if there is no author"
+                            sx={{marginRight:'2%', width:'100%'}}
                         />
-                        <TextField
+                        {/*<TextField
                             id="filled-author-lname"
                             label="Author First Name"
                             helperText="1 Character Limit"
@@ -254,14 +340,18 @@ function AddRef ({onOpen, onCloseModal, catName, testName, name_id}){
                                 inputProps: {
                                 maxLength: 1
                                 }}}
-                            value={authors}
-                            onChange={(e) => setAuthors(e.target.value)}
                             sx={{width:'29%'}}
-                        />
+                            />*/}
+                        
                     </div> 
-                )}
+                    
+                            )}
 
-                
+                {/*textfields.map((field, index) => (
+                    <div style={{marginTop:'1%', width:'95%', alignItems:'center', justifyContent:'center'}} key={index}>{field}</div>
+                ))*/}
+
+                {/*<Button onClick={handleViewAuth}> view </Button>*/}
 
                 {(selection === "Book"|| selection === "Journal" || selection === "Website")&&(
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent:'center'}}>

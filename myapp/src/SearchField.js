@@ -66,7 +66,7 @@ function SearchDisp ({infos, results}){
                 <Button sx={{color:'black', '&:hover':{backgroundColor: 'white'}}}>
                 <Search fontSize='medium' />
                 </Button>
-                <Input onChange={handleSearchResults} disableUnderline placeholder='Search...' sx={{
+                <Input onChange={handleSearchResults} disableUnderline placeholder='Search for Categories...' sx={{
                                                                     color:'black',
                                                                     width: '65vh', 
                                                                     fontSize: 'large'}}/>

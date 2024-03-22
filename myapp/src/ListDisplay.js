@@ -159,6 +159,9 @@ function ListView({jsonData, resetData}){
                                                     <ListItemText secondary={
                                                         <div style={{display:'block', width:'95%', alignItems:'center', whiteSpace:'pre-line'}}>
                                                             <Typography variant='body2'>
+                                                                {refItem.refFinderEmail !== 'None' && (<span style={{marginRight:'4px'}}>
+                                                                    {'Contact: ' + refItem.refFinderEmail + ' Reference: '} 
+                                                                </span>)}
                                                                 {refItem.refAuthors !== 'None' && (<span style={{marginRight:'4px'}}>
                                                                     {refItem.refAuthors  + '.'} 
                                                                 </span>)}
@@ -237,6 +240,9 @@ function ListView({jsonData, resetData}){
                                                     <ListItemText secondary={
                                                         <div style={{display:'block', width:'95%', alignItems:'center', whiteSpace:'pre-line'}}>
                                                             <Typography variant='body2'>
+                                                                {refItem.refFinderEmail !== 'None' && (<span style={{marginRight:'4px'}}>
+                                                                    {'Contact: ' + refItem.refFinderEmail + '.   Reference:'} 
+                                                                </span>)}
                                                                 {refItem.refAuthors !== 'None' && (<span style={{marginRight:'4px'}}>
                                                                     {refItem.refAuthors  + '.'} 
                                                                 </span>)}
