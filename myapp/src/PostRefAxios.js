@@ -17,6 +17,7 @@ export const PostRefStruct = (link, year, finderEmail, title, pub, vol, issue, p
     'references_id': nameID
     }
 
+    
     axios.post('https://constaslab.chem.uwo.ca/links/references/', JSON.stringify(refStructData), {
         headers: {
             'Content-Type': 'application/json'
