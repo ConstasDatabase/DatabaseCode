@@ -21,7 +21,8 @@ const style = {
     flexDirection:'column',
     overflow:'hidden',
     overflowY:'scroll',
-    overflowX:'scroll'
+    overflowX:'scroll',
+    alignItems:'center'
   };
 
 const refStyles = [

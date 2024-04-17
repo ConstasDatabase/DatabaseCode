@@ -3,6 +3,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
 import { AccountCircle } from '@mui/icons-material';
 import App from './App';
+import { useState } from 'react';
+import ShowAbout from './ShowAbout';
 
 
 //Switch appbar position to fixed if the appbar needs to be visible all the time or let it be static otherwise
@@ -50,11 +52,21 @@ function SiteBar () {
         
       };
     
+    const [about, setAbout] = useState(false)
 
+    const openAbout = () => {
+        setAbout(true)
+    }
+
+    const closeAbout = () => {
+        setAbout(false)
+    }
 
     const options = [
-                     {label:'About', onClick:closeAccount},
-                     {label:'Help', onClick:closeAccount}];
+                     {label:'About', onClick:openAbout}
+                     ];
+
+    
 
 
     const db_name = ['Constas Research Lab'];
@@ -71,7 +83,7 @@ function SiteBar () {
                         { db_name }
                     </Typography>
 
-                        {/*<div>
+                        <div>
                             {options.map((option, index) => (
                                 <Button key={ index } 
                                 onClick={option.onClick}
@@ -87,14 +99,15 @@ function SiteBar () {
                                    
                                 </Button>
                             ))}
-                            <Button sx={{px: 2, py: 2, color: 'white',
+                            <ShowAbout getOpen={about} getClose={closeAbout}/>
+                            {/*<Button sx={{px: 2, py: 2, color: 'white',
                                 '&:hover':{backgroundColor: 'barColour.switch', opacity: [0.9, 0.8, 0.7]}}}>
 
                             <AccountCircle fontSize='medium'/>
                             
-                            </Button>
-                            
-                            </div>*/}
+                            </Button>*/
+                            }
+                            </div>
                         
                     </Box>
                 </Container>
